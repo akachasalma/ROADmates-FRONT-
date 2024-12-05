@@ -1,0 +1,57 @@
+<!-- <div class="parent">
+    <div class="container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form >
+          <div class="input-box">
+            <input type="text" class="form-control" formControlName="username" required>
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <input type="password" class="form-control" formControlName="password" required>
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>-->
+  <div class="video-background">
+    <video autoplay muted loop id="background-video">
+      <source src="assets/videos/v1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="auth-container">
+      <mat-card class="auth-card">
+        <h1 class="auth-title">Welcome to RoadMates</h1>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()" autocomplete="off">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter your email" autocomplete="off"/>
+            <mat-error *ngIf="authForm.get('email')?.invalid">Invalid email</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Enter your password" autocomplete="off"/>
+            <mat-error *ngIf="authForm.get('password')?.invalid">Password is required</mat-error>
+          </mat-form-field>
+  
+          <div class="auth-options">
+            <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
+            <a class="forgot-password" routerLink="/forgot-password">Forgot Password?</a>
+          </div>
+  
+          <button mat-raised-button color="primary" routerLink="/create-ride" class="full-width" type="submit" [disabled]="authForm.invalid">Log In</button>
+          <button mat-raised-button color="accent" routerLink="/register" class="full-width google-signin">
+            Sign Up
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  
+  
+  
+  

@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Confirm Booking</h2>
+<div mat-dialog-content>
+  <p>Are you sure you want to book {{ requestedSeats }} seat(s) for this ride?</p>
+  <p><strong>From:</strong> {{ data.ride.departure }}</p>
+  <p><strong>To:</strong> {{ data.ride.destination }}</p>
+  <p><strong>Price:</strong> {{ data.ride.pricePerSeat }} € / Seat</p>
+
+  <mat-form-field>
+    <mat-label>Seats Requested</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="requestedSeats"
+      min="1"
+      [max]="data.ride.availableSeats"
+    />
+  </mat-form-field>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!requestedSeats || requestedSeats <= 0"
+    (click)="confirmBooking()"
+  >
+    Confirm
+  </button>
+</div>

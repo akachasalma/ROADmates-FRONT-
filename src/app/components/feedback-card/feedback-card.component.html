@@ -1,0 +1,9 @@
+<div class="feedback-card">
+    <div class="feedback-header">
+      <mat-icon color="warn">star</mat-icon>
+      <span class="rating">{{ feedback.rating }}</span>
+    </div>
+    <p class="feedback-text">{{ feedback.comment }}</p>
+    <p class="feedback-date">{{ feedback.date | date: 'd MMMM yyyy, h:mm a' }}</p>
+  </div>
+  

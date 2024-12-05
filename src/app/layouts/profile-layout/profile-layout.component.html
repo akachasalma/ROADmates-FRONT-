@@ -1,0 +1,151 @@
+<app-header></app-header>
+
+<div class="profile-container">
+  <!-- Left Side: Form -->
+  <div class="left-side">
+    <h1>Create Account</h1>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <h3>Personal Information</h3>
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="Enter your first name"
+              formControlName="firstname"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Enter your last name"
+              formControlName="lastname"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email Address</mat-label>
+            <input
+              matInput
+              placeholder="Enter your email"
+              formControlName="email"
+              type="email"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Enter your phone number"
+              formControlName="phonenumber"
+              type="tel"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Security Section -->
+        <div class="form-section">
+          <h3>Security Information</h3>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Enter your password"
+              formControlName="password"
+              type="password"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Birthday</mat-label>
+            <input
+              matInput
+              placeholder="Enter your birthday"
+              formControlName="birthday"
+              type="date"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Identity Card</mat-label>
+            <input
+              matInput
+              placeholder="Enter your identity card number"
+              formControlName="identityCard"
+              type="number"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Address Section -->
+        <div class="form-section">
+          <h3>Address Information</h3>
+          <div formGroupName="address">
+            <mat-form-field>
+              <mat-label>Street</mat-label>
+              <input
+                matInput
+                placeholder="Enter your street"
+                formControlName="street"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>House Number</mat-label>
+              <input
+                matInput
+                placeholder="Enter your house number"
+                formControlName="houseNumber"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Zip Code</mat-label>
+              <input
+                matInput
+                placeholder="Enter your zip code"
+                formControlName="zipcode"
+                required
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Submit Button -->
+      <div class="form-actions">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="profileForm.invalid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Right Side: Profile Picture -->
+  <div class="right-side">
+    <div class="profile-picture-container">
+      <img
+        src="assets/images/profile.png"
+        alt="Profile Picture"
+        class="profile-picture"
+      />
+      <button mat-raised-button color="accent" (click)="onUploadPicture()">
+        Upload Profile Picture
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

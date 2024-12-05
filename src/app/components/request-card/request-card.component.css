@@ -1,0 +1,22 @@
+.request-status {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .status-text {
+    display: inline;
+  }
+  
+  .status-text .accepted {
+    color: green;
+  }
+  
+  .status-text .rejected {
+    color: red;
+  }
+  
+  .status-text .waiting {
+    color: orange;
+  }
+  

@@ -1,0 +1,47 @@
+<div class="ride-card">
+    <!-- Ride Information -->
+    <div class="ride-header">
+      <div class="ride-time-location">
+        <span class="ride-date">{{ ride.date || 'Date not available' }}</span>
+        <span class="ride-time">{{ ride.time || 'Time not available' }}</span>
+      </div>
+      
+      <div class="ride-destination">
+        <span><strong>From:</strong> {{ ride.departure }}</span>
+        <span><strong>To:</strong> {{ ride.destination }}</span>
+      </div>
+      <div class="ride-price">
+        <span>{{ ride.pricePerSeat }} € / Seat</span>
+      </div>
+    </div>
+  
+    <!-- Divider -->
+    <hr class="ride-divider" />
+  
+    <!-- Bottom Section -->
+    <div class="ride-footer">
+      <div class="driver-info">
+        <img
+          src="assets/images/profile.png"
+          alt="Driver Photo"
+          class="driver-photo"
+        />
+        <div class="driver-details">
+          <span class="driver-name">{{ ride.userId }}</span>
+          <span class="driver-rating">⭐4.5</span>
+          <span class="available-seats">
+            <strong>Seats Available:</strong> {{ ride.availableSeats }}
+          </span>
+        </div>
+      </div>
+      <div class="ride-actions">
+        <button mat-raised-button class="details-button" routerLink="/ride">
+          More Details
+        </button>
+        <button mat-raised-button  class="book-button" (click)="bookRide(ride.id)">
+          Book Now
+        </button>
+      </div>
+    </div>
+  </div>
+  

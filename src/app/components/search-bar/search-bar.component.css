@@ -1,0 +1,47 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%; /* Make the search container take 80% of the width */
+  margin: 0 auto; /* Center the container */
+  margin-top: 40px;
+  border: 1px solid #ccc; /* Add a light border */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between elements */
+  width: 100%;
+}
+
+.inline-field {
+  flex: 1; /* Ensures equal width for all input fields */
+}
+
+.inline-passengers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.passenger-count {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.switch-button {
+  align-self: center;
+}
+
+.submit-button {
+  flex: 0; /* Prevent the button from stretching */
+  font-size: 16px; /* Increase font size */
+  padding: 10px 20px; /* Add padding to make it larger */
+  min-width: 120px; /* Ensure the button has a larger width */
+  text-transform: uppercase; /* Make the text uppercase */
+  font-weight: bold;
+}

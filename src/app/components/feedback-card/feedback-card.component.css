@@ -1,0 +1,37 @@
+.feedback-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .feedback-header mat-icon {
+    color: #ffc107; /* Gold star for rating */
+  }
+  
+  .rating {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .feedback-text {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .feedback-date {
+    font-size: 12px;
+    color: #999;
+    margin-top: auto;
+  }
+  

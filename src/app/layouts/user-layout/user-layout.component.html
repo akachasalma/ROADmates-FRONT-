@@ -1,0 +1,147 @@
+<app-header></app-header>
+
+<div class="profile-container">
+    <!-- User Info Section -->
+    <section class="user-info">
+      <div class="profile-header">
+        <img
+          src="assets/images/profile.png"
+          alt="User Avatar"
+          class="profile-avatar"
+        />
+        <div class="profile-details">
+          <h2>{{ user.name }}</h2>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.phone }}</p>
+          <p><strong>Member Since:</strong> {{ user.memberSince | date: 'yyyy-MM-dd' }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Rides Created Section -->
+    <section class="profile-section">
+      <h3>My Rides</h3>
+      <button mat-raised-button class="black-button" (click)="toggleCreateRideForm()">
+        Create New Ride
+      </button>
+      <div class="rides-grid-container">
+        <app-ride-card *ngFor="let ride of filteredRides" [ride]="ride"></app-ride-card>
+      </div>
+      
+    
+
+ <!-- Popup Form -->
+<div class="popup-form-container" [ngClass]="{ 'show': showCreateRideForm }" aria-labelledby="create-ride-heading">
+    <div class="popup-form">
+      <h2 id="create-ride-heading">Create a Ride</h2>
+      <form [formGroup]="createRideForm" (ngSubmit)="onSubmitRide()" aria-labelledby="create-ride-form">
+  
+        <!-- Starting Point -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Starting Point</mat-label>
+          <input matInput formControlName="startingPoint" placeholder="Enter the starting point" required />
+        </mat-form-field>
+  
+        <!-- Destination -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Destination</mat-label>
+          <input matInput formControlName="destination" placeholder="Enter the destination" required />
+        </mat-form-field>
+  
+        <!-- Date -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="datePicker" formControlName="date" placeholder="Select the date of the ride" required />
+          <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+          <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- Time -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Time</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="time"
+            placeholder="Enter the time of the ride (e.g., 18:30)"
+            required
+          />
+        </mat-form-field>
+        
+        
+  
+        <!-- Available Seats -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Available Seats</mat-label>
+          <input matInput type="number" formControlName="availableSeats" placeholder="Enter the number of available seats" required min="1" />
+        </mat-form-field>
+  
+        <!-- Price per Seat -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Price per Seat</mat-label>
+          <input matInput type="number" formControlName="pricePerSeat" placeholder="Enter the price per seat" required min="0" />
+        </mat-form-field>
+  
+        <!-- Car Model -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Car Model</mat-label>
+          <input matInput formControlName="carModel" placeholder="Enter the car model" required />
+        </mat-form-field>
+  
+        <!-- Ride Options -->
+        <div class="options" aria-labelledby="options-heading">
+          <p id="options-heading">Ride Options</p>
+          <mat-checkbox formControlName="smokingAllowed">Smoking Allowed</mat-checkbox>
+          <mat-checkbox formControlName="musicOn">Music On</mat-checkbox>
+          <mat-checkbox formControlName="airConditioning">Air Conditioning</mat-checkbox>
+        </div>
+  
+        <!-- Submit and Cancel Buttons -->
+        <div class="form-buttons">
+          <button mat-raised-button color="primary" type="submit" aria-label="Submit your ride details">Submit</button>
+          <button mat-raised-button color="warn" type="button" (click)="toggleCreateRideForm()">Cancel</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+
+    </section>
+  
+    <!-- Demands Received Section -->
+    <section class="profile-section">
+      <h3>Demands</h3>
+      <div class="demands-grid">
+        <app-demand-card
+          *ngFor="let demand of receivedDemands"
+          [demand]="demand"
+        ></app-demand-card>
+      </div>
+    </section>
+  
+    <!-- Requests Sent Section -->
+    <section class="profile-section">
+      <h3>My Requests</h3>
+      <div class="requests-grid">
+        <app-request-card
+          *ngFor="let request of sentRequests"
+          [demand]="request"
+        ></app-request-card>
+      </div>
+    </section>
+
+
+    <section class="profile-section">
+        <h3>User Feedback</h3>
+        <div class="feedback-grid">
+          <app-feedback-card
+            *ngFor="let feedback of userFeedbacks"
+            [feedback]="feedback"
+          ></app-feedback-card>
+        </div>
+      </section>
+      
+      
+  </div>
+  
+<app-footer></app-footer>

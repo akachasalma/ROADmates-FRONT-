@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<main>
+    <section class="feedback-section">
+        <div class="feedback-section">
+            <h1 class="feedback-title">We Value Your Feedback</h1>
+            <form class="feedback-form" (submit)="submitFeedback()">
+                <!-- Rating Section -->
+                <div class="feedback-rating">
+                    <label for="rating" class="feedback-label">Rating:</label>
+                    <div class="rating">
+                        <input type="radio" id="star1" name="rating" value="1" (change)="updateRating(1)" />
+                        <label for="star1" title="1 star"></label>
+                        <input type="radio" id="star2" name="rating" value="2" (change)="updateRating(2)" />
+                        <label for="star2" title="2 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" (change)="updateRating(3)" />
+                        <label for="star3" title="3 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" (change)="updateRating(4)" />
+                        <label for="star4" title="4 stars"></label>
+                        <input type="radio" id="star5" name="rating" value="5" (change)="updateRating(5)" />
+                        <label for="star5" title="5 stars"></label>
+                    </div>
+                </div>
+
+                <!-- Comment Section -->
+                <div class="feedback-comment">
+                    <label for="comment" class="feedback-label">Leave a Comment:</label>
+                    <textarea
+                        id="comment"
+                        placeholder="Share your experience..."
+                        class="feedback-textarea"
+                        [(ngModel)]="comment"
+                        name="comment"
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="feedback-submit">
+                    Submit Feedback
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<app-footer></app-footer>

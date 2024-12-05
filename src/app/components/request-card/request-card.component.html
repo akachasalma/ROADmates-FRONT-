@@ -1,0 +1,24 @@
+<div class="demand-card">
+    <!-- Driver Name -->
+    <div class="demand-info">
+      <h3 class="driver-name">{{ demand.driverName }}</h3>
+      <p class="pickup">Pickup: {{ demand.pickup }}</p>
+      <p class="dropoff">Dropoff: {{ demand.dropoff }}</p>
+      <p class="date">Date: {{ demand.date | date: 'yyyy-MM-dd hh:mm a' }}</p>
+    </div>
+  
+    <!-- Status Display -->
+    <div class="request-status">
+      <p class="status-text">
+        Status: 
+        <span [ngClass]="{
+          'accepted': requestStatus === 'Accepted',
+          'rejected': requestStatus === 'Rejected',
+          'waiting': requestStatus === 'Waiting for Response'
+        }">
+          {{ requestStatus }}
+        </span>
+      </p>
+    </div>
+  </div>
+  
